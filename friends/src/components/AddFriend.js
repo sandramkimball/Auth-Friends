@@ -26,7 +26,7 @@ class AddFriend extends React.Component {
     addFriend = e => {
         e.preventDefault();
         axiosWithAuth()
-        .post('/api/server', this.state.newFriend)
+        .post('/api/friends', this.state.newFriend)
         .then(res=> {
             localStorage.setItem('token', res.data.payload)
         })

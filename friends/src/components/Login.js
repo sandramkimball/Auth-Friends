@@ -1,12 +1,15 @@
 import React from 'react';
 import {axiosWithAuth} from '../utilis/axiosWithAuth';
 import {Redirect} from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
+import Friends from './Friends';
+
 
 class Login extends React.Component {
     state = {
         credentials: {
-            username: '',
-            password: ''
+            username: 'cc',
+            password: 'cc'
         }
     };
 
@@ -27,15 +30,15 @@ class Login extends React.Component {
         axiosWithAuth()
         .post('/api/login', this.state.credentials)
         .then(res=> {
-            localStorage.setItem('token', res);
-            this.props.history.push('/protected');
+            localStorage.setItem('token', res.data.payload);
+            this.props.history.push('/friends');
         })
         .catch(err=>console.log('Access Denied, Cyborg!', err))
     }
 
     render(){
         if (localStorage.getItem('token')){
-            return <Redirect to='protected'/>
+            return <ProtectedRoute exact path='/friends' component={Friends}/>
         }
         return (
             <div className='form' onSubmit={this.login}>

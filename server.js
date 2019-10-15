@@ -8,7 +8,7 @@ const token =
 
 let nextId = 7;
 
-export let friends = [
+let friends = [
   {
     id: 1,
     name: 'Howard',

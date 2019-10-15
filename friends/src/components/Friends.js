@@ -12,35 +12,26 @@ class Friends extends React.Component{
     }
 
     //fetch data from server
-    //data is protected behind a token
-    //so our request must include an 'Authorization: token' header
+    //data is protected behind a token so request must include 'Authorization: token' header
 
-    // getData=()=>{
-    //     axiosWithAuth()
-    //     .get('api/server')
-    //     .then(res=>{console.log('Friends:', res.friends)
-    //         // this.setState({friends: res.data.data})
-    //     })
-    //     .catch(err=>{console.log('Dammit! Where mi friends at?', err)
-    //     });
-    // };
+    getData=()=>{
+        axiosWithAuth()
+        .get('api/friends')
+        .then(res=>{ this.setState({friends: res.friends})
+        })
+        .catch(err=>{console.log('I have no friends:(', err)
+        });
+    };
 
-    // formatData = () => {
-    //     const formattedFriends = [];
-    //     console.log('format friend data', this.state.friends);
-       
-    // }
 
     render(){
-        const friends = this.formatData();
-        console.log('We rendering here: ', friends);
         return(
             <div className='friends-container'>
                 <h1>I think I have friends...?</h1>
-                {/* {friends.map(friend=>(
+                {friends.map(friend=>(
                     <h3>{friend.name}</h3>
-                ))} */}
-                <AddFriend/>
+                ))}
+                {/* <AddFriend/> */}
             </div>
         )
     }
