@@ -1,5 +1,6 @@
 import React from 'react';
 import {axiosWithAuth} from '../utilis/axiosWithAuth';
+import AddFriend from './AddFriend';
 
 class Friends extends React.Component{
     state={
@@ -35,7 +36,10 @@ class Friends extends React.Component{
         console.log('We rendering here: ', friends);
         return(
             <div className='friends-container'>
-                
+                {friends.map(friend=>(
+                    <h3>{friend.name}</h3>
+                ))}
+                <AddFriend/>
             </div>
         )
     }
