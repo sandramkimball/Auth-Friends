@@ -26,7 +26,7 @@ class AddFriend extends React.Component {
     addFriend = e => {
         e.preventDefault();
         axiosWithAuth()
-        .post('/api/data', this.state.newFriend)
+        .post('/api/server', this.state.newFriend)
         .then(res=> {
             localStorage.setItem('token', res.data.payload)
         })
@@ -35,7 +35,7 @@ class AddFriend extends React.Component {
 
     render(){
         return (
-            <div className='add-friend-form' onSubmit={this.addFriend}>
+            <div className='form' onSubmit={this.addFriend}>
                 <form>
                     <input 
                     type='text' 
