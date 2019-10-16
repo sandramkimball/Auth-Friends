@@ -1,0 +1,85 @@
+.App{
+    margin: 0 auto;
+    background: #a7dfc7;
+    padding: 50px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header h2{
+    font-size: 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    background: #cce9dc;
+    padding: 10px;
+    margin: 0 auto;
+    width: 35%;
+    align-items: space-between;
+    align-content: center;
+}
+form input{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    align-content: center;
+    margin: 7px auto;
+    border: none;
+    width: 80%;
+    height: 20px;
+}
+
+header{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-bottom: 20px;
+    border-bottom: .25px solid #cce9dc;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+li a{
+    text-decoration: none;
+    color: black;
+    padding: 0 5px;
+}
+
+.main-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.friends-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friends-container h2{
+    text-align: left;
+    margin-left: 50px;
+}
+.friend-li{
+    display: flex;
+    padding: 5px;
+    margin: 7px auto;
+    width: 40%;
+    justify-content: space-between;
+    align-self: center;
+    background: #cce9dc;
+    font-size: 14px;
+    padding: none;
+
+}
+
+.add-friend{
+    margin-top: 30px;
+}
