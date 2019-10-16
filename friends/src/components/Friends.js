@@ -31,9 +31,9 @@ class Friends extends React.Component{
         axiosWithAuth()
         .delete(`/api/friends/${id}`)
         .then(res=> {
-            localStorage.setItem('token', res.data.payload.filter(friend=> !friend.id))
+            localStorage.setItem('token', !res.data.payload)
         })
-        .catch(err=>console.log('Friend still here.', err.response))
+        .catch(err=>console.log('Friend still here.', err))
     }
 
     render(){
