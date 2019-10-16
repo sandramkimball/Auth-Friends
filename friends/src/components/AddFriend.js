@@ -34,12 +34,12 @@ class AddFriend extends React.Component {
         .then(res=> {
             localStorage.setItem('token', res.data.payload)
         })
-        .catch(err=>console.log('Friend not added.', err.response))
+        .catch(err=>console.log('Friend not added.', err))
     }
 
     render(){
         return (
-            <div className='form' onSubmit={this.addFriend}>
+            <div className='add-friend form' onSubmit={this.addFriend}>
                 <form>
                     <input 
                     type='text' 

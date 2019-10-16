@@ -48,15 +48,16 @@ class Login extends React.Component {
     }
 
     render(){
-        if (localStorage.getItem('token')){
-            return <Route exact path='/friends' component={Friends}/>
-        }
+        // if (localStorage.getItem('token')){
+        //     return <ProtectedRoute path='/friends' component={Friends}/>
+        // } 
         return (
             <div className='form' >
                 <form>
-                    <input type='text' name='username' value={this.state.credentials.username} onChange={this.handleChange}/>
+                    <input type='text' name='username' value={this.state.credentials.username} 
+                    placeholder="username" onChange={this.handleChange}/>
 
-                    <input type='password' name='password' value={this.state.credentials.password} onChange={this.handleChange}/>
+                    <input type='password' name='password' value={this.state.credentials.password} placeholder="password" onChange={this.handleChange}/>
 
                     <button type='submit' onClick={this.login}>Login</button>
                     <button onClick={this.logout}>Logout</button>

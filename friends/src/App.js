@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="header">
-          <h2>Welcome mis Amigos!</h2>
+          <h2>Mis Amigos!</h2>
           <ul>
             <li><Link to='/login'>Login</Link></li>
             <li><Link to='/friends'>Friends</Link></li>
@@ -19,8 +19,8 @@ function App() {
         </header>
         <section className='main-body'>
           <Switch>
-            <Route exact path='/friends' component={Friends}/>
-            <Route exact path='/login' component = {Login}/>
+            <PrivateRoute exact path='/friends' component={Friends}/>
+            <Route path='/login' component = {Login}/>
             <Route component={Login}/>
           </Switch>
         </section>

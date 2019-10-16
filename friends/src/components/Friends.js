@@ -29,21 +29,22 @@ class Friends extends React.Component{
     deleteFriend = (e, id) => {
         e.preventDefault();
         axiosWithAuth()
-        .delete(`/api/friends/${id}`, this.state.newFriend)
+        .delete(`/api/friends/${id}`)
         .then(res=> {
             localStorage.setItem('token', res.data.payload.filter(friend=> !friend.id))
         })
-        .catch(err=>console.log('Friend not added.', err.response))
+        .catch(err=>console.log('Friend still here.', err.response))
     }
 
     render(){
         return(
             <div className='friends-container'>
-                <h1>I think I have friends...?</h1>
+                <h2>Contact List:</h2>
                 {this.state.friends.map(friend=>(
-                    <div>
+                    <div className='friend-li'>
                         <Friend key={friend.id} friend={friend}/>
-                        <button onCLick={this.deleteFriend}>X</button>
+                        <h3>{friend.name}</h3>
+                        <button onClick={this.deleteFriend}>X</button>
                     </div>
                 ))}
 
