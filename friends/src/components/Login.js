@@ -1,6 +1,6 @@
 import React from 'react';
 import {axiosWithAuth} from '../utilis/axiosWithAuth';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import Friends from './Friends';
 
@@ -8,8 +8,8 @@ import Friends from './Friends';
 class Login extends React.Component {
     state = {
         credentials: {
-            username: 'cc',
-            password: 'cc'
+            username: '',
+            password: ''
         }
     };
 
@@ -36,18 +36,31 @@ class Login extends React.Component {
         .catch(err=>console.log('Access Denied, Cyborg!', err))
     }
 
+    logout = e => {
+        e.preventDefault();
+        axiosWithAuth()
+        .post('/api/login', this.state.credentials)
+        .then(res=> {
+            localStorage.setItem('token', !res.data.payload);
+            this.props.history.push('/login');
+        })
+        .catch(err=>console.log('Have a nice trip', err))
+    }
+
     render(){
         if (localStorage.getItem('token')){
-            return <ProtectedRoute exact path='/friends' component={Friends}/>
+            return <Route exact path='/friends' component={Friends}/>
         }
         return (
-            <div className='form' onSubmit={this.login}>
+            <div className='form' >
                 <form>
                     <input type='text' name='username' value={this.state.credentials.username} onChange={this.handleChange}/>
 
                     <input type='password' name='password' value={this.state.credentials.password} onChange={this.handleChange}/>
 
-                    <button>Login</button>
+                    <button type='submit' onClick={this.login}>Login</button>
+                    <button onClick={this.logout}>Logout</button>
+
                 </form>
             </div>
         );

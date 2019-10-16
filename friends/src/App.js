@@ -10,18 +10,20 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
+        <header className="header">
           <h2>Welcome mis Amigos!</h2>
           <ul>
             <li><Link to='/login'>Login</Link></li>
             <li><Link to='/friends'>Friends</Link></li>
           </ul>
         </header>
-        <Switch>
-          <PrivateRoute exact path='/friends' component={Friends}/>
-          <Route path='/login' component = {Login}/>
-          <Route component={Login}/>
-        </Switch>
+        <section className='main-body'>
+          <Switch>
+            <Route exact path='/friends' component={Friends}/>
+            <Route exact path='/login' component = {Login}/>
+            <Route component={Login}/>
+          </Switch>
+        </section>
       </div>
     </Router>
   );

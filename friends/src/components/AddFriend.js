@@ -20,6 +20,10 @@ class AddFriend extends React.Component {
         });
     };
 
+    submitFriend = e =>{
+        e.preventDefault();
+    }
+
     //login to retrieve the JWT token.
     //add token to localstorage. (in redux, token saved in state)
     //route to /protected (or whatev landing page)
@@ -40,19 +44,22 @@ class AddFriend extends React.Component {
                     <input 
                     type='text' 
                     name='name' 
-                    value={this.state.credentials.name} 
+                    value={this.state.name} 
+                    placeholder='Name'
                     onChange={this.handleChange}/>
 
                     <input 
                     type='text' 
                     name='age' 
-                    value={this.state.credentials.age} 
+                    placeholder='Age'
+                    value={this.state.age} 
                     onChange={this.handleChange}/>
 
                     <input 
                     type='text' 
                     name='email' 
-                    value={this.state.credentials.email} 
+                    placeholder='Email'
+                    value={this.state.email} 
                     onChange={this.handleChange}/>
 
                     <button tpye='submit'>Add Friend</button>
